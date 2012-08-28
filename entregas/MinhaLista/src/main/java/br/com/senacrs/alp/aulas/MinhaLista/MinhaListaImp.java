@@ -5,7 +5,12 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 	private Nodo<Tipo> inicio = null;
 	
 	public MinhaListaImp(Tipo valorInicio){
-		this.inicio = new Nodo<Tipo>(valorInicio);
+		if(valorInicio != null){
+			this.inicio = new Nodo<Tipo>(valorInicio);
+		}
+		else{
+			throw new IllegalArgumentException();
+		}
 	}
 	
 	public void sufixar(Tipo valor) {
@@ -83,11 +88,11 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 		return resultado;
 	}
 
-	public Nodo<Tipo> getInicio() {
+	protected Nodo<Tipo> getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(Nodo<Tipo> inicio) {
+	protected void setInicio(Nodo<Tipo> inicio) {
 		this.inicio = inicio;
 	}
 
