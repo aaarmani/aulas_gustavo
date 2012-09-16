@@ -31,17 +31,12 @@ public class MinhaListaImp<Tipo> implements MinhaLista<Tipo> {
 	}
 
 	public void prefixar(Tipo valor) {
-		int tamanho = tamanho();
-		Nodo<Tipo> primeiro = buscarPrimeiroNodo();
-		Nodo<Tipo> novoPrimeiro = new Nodo<Tipo>(valor);
+		Nodo<Tipo> nodo = new Nodo<Tipo>(valor);
+		Nodo<Tipo> inicio = getInicio();
+		Nodo<Tipo> inicioReal = inicio.getProximo();
 		
-		if(tamanho == 0){
-			primeiro.setProximo(novoPrimeiro);
-		}
-		else{
-			novoPrimeiro.setProximo(primeiro.getProximo());
-			setInicio(novoPrimeiro);	
-		}
+		nodo.setProximo(inicioReal);
+		inicio.setProximo(nodo);
 	}
 
 	private Nodo<Tipo> buscarPrimeiroNodo() {
