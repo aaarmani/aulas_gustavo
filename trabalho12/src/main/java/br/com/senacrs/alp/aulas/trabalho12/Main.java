@@ -15,7 +15,6 @@ public class Main {
 		}
 
 		retornoGetPath = getPath(path);
-		System.out.println(retornoGetPath);
 		
 		if(!retornoGetPath.equals(MSG_ERRO)){
 			trataArquivo(retornoGetPath);
