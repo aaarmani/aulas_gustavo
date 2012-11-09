@@ -29,16 +29,17 @@ public class MainTest {
 	
 	@Test
 	public void testCaminhoInvalido(){
-		String esperado = null;
-		String obtido = null;
-		String path = null;
+		String[] path = null;
 		
-		path = "Caminho_Invalido";
-		esperado = "ERRO";
+		path = new String[1];
+		path[0] = "Caminho_Invalido";
 		
-		obtido = Main.getPath(path);
-		
-		Assert.assertEquals(esperado, obtido);
+		try{
+			Main.main(path);
+			Assert.fail("Deveria ter abortado");
+		} catch (IllegalArgumentException e) {
+			Assert.assertTrue(true);
+		}
 	}
 	
 	@Test
